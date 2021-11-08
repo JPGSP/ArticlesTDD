@@ -11,5 +11,8 @@
         "psr-4": {
             "Tests\\": "tests/"
         }
+    },
+    "require": {
+        "paquettg/php-html-parser": "^3.1"
     }
 }
