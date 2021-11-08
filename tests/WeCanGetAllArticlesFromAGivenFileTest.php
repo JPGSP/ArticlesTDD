@@ -65,7 +65,7 @@ class WeCanGetAllArticlesFromAGivenFileTest extends TestCase
         ];
 
 
-        $this->assertEquals($expectedValue, $thirdArticle->getContentType());
+        $this->assertEquals($expectedValue, $thirdArticle->getContentParsed());
     }
 
     public function test_we_have_content_parsed_in_the_second_article_of_the_file(): void
@@ -97,6 +97,6 @@ class WeCanGetAllArticlesFromAGivenFileTest extends TestCase
         ];
 
 
-        $this->assertEquals($expectedValue, $thirdArticle->getContentType());
+        $this->assertEquals($expectedValue, $thirdArticle->getContentParsed());
     }
 }

@@ -32,7 +32,7 @@ class Article
         return $this->content;
     }
 
-    public function getContentType(): array
+    public function getContentParsed(): array
     {
         $dom = new Dom;
         $dom->setOptions(
