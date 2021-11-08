@@ -3,6 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
+use App\Models\Article;
 use App\Models\File;
 
 class WeCanGetAllArticlesFromAGivenFileTest extends TestCase
@@ -27,13 +28,12 @@ class WeCanGetAllArticlesFromAGivenFileTest extends TestCase
         $this->assertCount(0, $articleCollection);
     }
 
-    public function test_we_have_title_first_article_in_a_file(): void
+    public function test_we_have_the_first_article_in_a_file(): void
     {
         $file = new File("articles.json");
         $articleCollection = $file->getAllArticles();
         $firstArticle = $articleCollection[0];
 
         $this->assertInstanceOf(Article::class, $firstArticle);
-        $this->assertEquals('Places to stay in Rome', $firstArticle->getTitle());
     }
 }

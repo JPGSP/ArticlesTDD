@@ -23,19 +23,24 @@ class File
 
     private function getFileDecodeContent(string $file): array
     {
-        return json_decode($file);
+        return json_decode($file, true);
     }
 
     public function getAllArticles(): array
     {
         $file = $this->getFile();
-        $contentDecode = [];
+        $articles = [];
 
         if ($file) {
             $content = $this->getFileContent($file);
             $contentDecode = $this->getFileDecodeContent($content);
+            $articles = [];
+
+            foreach ($contentDecode as $article) {
+                array_push($articles, new Article($article));
+            }
         }
 
-        return $contentDecode;
+        return $articles;
     }
 }
