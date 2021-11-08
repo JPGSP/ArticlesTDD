@@ -46,4 +46,13 @@ class WeCanGetAllArticlesFromAGivenFileTest extends TestCase
         $this->assertInstanceOf(Article::class, $firstArticle);
         $this->assertEquals('Places to stay in Rome', $firstArticle->getTitle());
     }
+
+    public function test_we_have_an_image_in_the_third_article_of_the_file(): void
+    {
+        $file = new File("articles.json");
+        $articleCollection = $file->getAllArticles();
+        $thirdArticle = $articleCollection[2];
+
+        $this->assertEquals('image', $thirdArticle->getContentType());
+    }
 }
