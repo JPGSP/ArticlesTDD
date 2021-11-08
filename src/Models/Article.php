@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use PHPHtmlParser\Dom;
-use PHPHtmlParser\Options;
+use App\Service\Parser;
 
 class Article
 {
@@ -34,41 +33,6 @@ class Article
 
     public function getContentParsed(): array
     {
-        $dom = new Dom;
-        $dom->setOptions(
-            // this is set as the global option level.
-            (new Options())
-                ->setStrict(false)
-                ->setPreserveLineBreaks(true)
-        );
-
-        $dom->loadStr($this->content);
-		$children = $dom->getChildren();
-
-        $output = [];
-
-        foreach ( $children as $child ) {
-            $tagName = $child->getTag()->name();
-
-            if ($tagName === "img") {
-                array_push(
-                    $output,
-                    [
-                        "type" => "img",
-                        "src"  => $child->getAttribute('src'),
-                        "alt"  => $child->getAttribute('alt')
-                    ]
-                );
-            } else {
-                array_push(
-                    $output,
-                    [
-                        "type"    => ($tagName === "p") ? "paragraph" : "text",
-                        "content" => $child->innerHtml
-                    ]
-                );
-            }
-        }
-        return $output;
+        return Parser::parse($this->getContent());
     }
 }
