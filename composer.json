@@ -14,5 +14,9 @@
     },
     "require": {
         "paquettg/php-html-parser": "^3.1"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "phpunit --configuration phpunit.xml --coverage-clover build/logs/clover.xml --coverage-html build/coverage"
     }
 }
