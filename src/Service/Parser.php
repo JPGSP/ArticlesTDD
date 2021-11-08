@@ -7,8 +7,7 @@ use PHPHtmlParser\Options;
 
 class Parser
 {
-
-    public static function parse(string $content)
+    public static function parse(string $content): array
     {
         $dom = new Dom;
         $dom->setOptions(
