@@ -7,13 +7,13 @@ use App\Models\File;
 
 class ArticleController
 {
-    public function get()
+    public static function get()
     {
         $myFile = new File("articles.json");
         return $myFile->getAllArticles();
     }
 
-    public function getById($id)
+    public static function getById($id)
     {
         $myFile = new File("articles.json");
         $articles = $myFile->getAllArticles();
