@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Service\Parser;
+use App\Services\Parser;
 
 class Article
 {
