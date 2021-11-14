@@ -34,7 +34,6 @@ class File
         if ($file) {
             $content = $this->getFileContent($file);
             $contentDecode = $this->getFileDecodeContent($content);
-            $articles = [];
 
             foreach ($contentDecode as $article) {
                 array_push($articles, new Article($article));
