@@ -6,11 +6,13 @@ use App\Service\Parser;
 
 class Article
 {
+    private $id;
     private $title;
     private $slug;
     private $content;
 
     public function __construct(array $article){
+        $this->id = $article['id'];
         $this->title = $article['title'];
         $this->slug = $article['slug'];
         $this->content = $article['content'];
